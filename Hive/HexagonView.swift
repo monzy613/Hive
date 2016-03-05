@@ -34,18 +34,23 @@ class HexagonView: UIView {
         
         badgeLabel?.layer.cornerRadius = badgeWidth / 2
         badgeLabel?.clipsToBounds = true
-        print(self.frame)
         
         self.addSubview(badgeLabel!)
     }
     
     func toggleSelected() {
         if isSelected == false {
+            imageView?.animation = "pop"
+            imageView?.curve = "easeIn"
+            imageView?.duration = 0.5
+            imageView?.repeatCount = 9999
+            imageView?.animate()
             UIView.animateWithDuration(0.2, animations: {
                 [unowned self] in
                 self.layer.opacity = 0.5
                 })
         } else {
+            imageView?.layer.removeAllAnimations()
             UIView.animateWithDuration(0.2, animations: {
                 [unowned self] in
                 self.layer.opacity = 1.0
