@@ -247,6 +247,7 @@ class HexagonView: UIView {
     
     func onChessDeselected() {
         if hiveType! == .EmptyPlace {
+            logic?.newPlaceses.removeAll()
             self.removeFromSuperview()
         }
     }
@@ -282,6 +283,7 @@ class HexagonView: UIView {
             }
             self.removeFromSuperview()
             NSNotificationCenter.defaultCenter().postNotificationName(Const.OnChessPlaced, object: nil, userInfo: [Const.placedChess: logic!.selectedChess!])
+            logic!.newPlaceses.removeAll()
             logic!.chessOnBoard.append(newChess)
             logic!.started = true
             logic?.nextPlayer()

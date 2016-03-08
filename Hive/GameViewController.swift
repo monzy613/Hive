@@ -22,8 +22,6 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         p2chessbox.CHESSNUM = CGFloat(logic!.chessnum)
         initChessboard()
         initObservers()
-        
-        //chessboardScrollView.contentInset = UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10)
     }
     
     func initChessboard() {

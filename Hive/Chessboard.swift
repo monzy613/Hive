@@ -74,6 +74,8 @@ enum Corner {
 class Chessboard: UIScrollView {
     var initX: CGFloat = 0
     var initY: CGFloat = 0
+    
+    
     var edgeLength: CGFloat {
         get {
             return initX / 10
@@ -87,12 +89,14 @@ class Chessboard: UIScrollView {
         if logic!.started == false {
             let newPlace = HexagonView(edgeLength: initX / 10, center: CGPointMake(initX - edgeLength / 2, initY - edgeLength / 2), chess: Chess(playerType: -1, chessType: Const.newChess), hiveType: .EmptyPlace)
             newPlace.animate()
+            logic!.newPlaceses.append(newPlace)
             self.addSubview(newPlace)
         } else {
             for chessView in logic!.chessOnBoard {
                 showAvailablePlace(aroundChessView: chessView)
             }
         }
+        print("availablePlace: \(logic!.newPlaceses.count)")
     }
  
     func onBoardChessSelected() {
@@ -151,6 +155,11 @@ class Chessboard: UIScrollView {
     
     func newPlaceHexagon(withChess chessView: HexagonView, andCorner corner: Corner) {
         let newCenter = centerPoint(atCorner: corner, withRelatedCenter: chessView.myCenter!)
+        for np in logic!.newPlaceses {
+            if almostSamePoint(lp: newCenter, rp: np.myCenter!) {
+                return
+            }
+        }
         let aroundChesses = chessesAround(point: newCenter)
         let newPlace = HexagonView(edgeLength: initX / 10, center: newCenter, chess: Chess(playerType: -1, chessType: Const.newChess), hiveType: .EmptyPlace)
         for chess in aroundChesses {
@@ -161,20 +170,19 @@ class Chessboard: UIScrollView {
                 if chessCenter.x < newCenter.x && chessCenter.y < newCenter.y {//u1
                     newPlace.relationDictionary[.U1] = chess
                 } else if chessCenter.x == newCenter.x && chessCenter.y < newCenter.y {//u2
-                    print("u2")
                     newPlace.relationDictionary[.U2] = chess
                 } else if chessCenter.x > newCenter.x && chessCenter.y < newCenter.y {//u3
                     newPlace.relationDictionary[.U3] = chess
                 } else if chessCenter.x < newCenter.x && chessCenter.y > newCenter.y {//d1
                     newPlace.relationDictionary[.D1] = chess
                 } else if chessCenter.x == newCenter.x && chessCenter.y > newCenter.y {//d2
-                    print("d2")
                     newPlace.relationDictionary[.D2] = chess
                 } else if chessCenter.x > newCenter.x && chessCenter.y > newCenter.y {//d3
                     newPlace.relationDictionary[.D3] = chess
                 }
             }
         }
+        logic!.newPlaceses.append(newPlace)
         self.addSubview(newPlace)
         newPlace.animate()
     }
@@ -195,5 +203,12 @@ class Chessboard: UIScrollView {
         let dis = sqrt(a + b)
         let diff = abs(dis - 2 * Double(edgeLength * MZCalculate.mzcos(degree: 30)))
         return diff < 0.1
+    }
+    
+    func almostSamePoint(lp lp: CGPoint, rp: CGPoint) -> Bool {
+        let a = Double((lp.x - rp.x) * (lp.x - rp.x))
+        let b = Double((lp.y - rp.y) * (lp.y - rp.y))
+        let dis = sqrt(a + b)
+        return dis < 0.1
     }
 }

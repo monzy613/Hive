@@ -46,6 +46,7 @@ class Logic {
     var selectedChess: Chess?
     
     var chessOnBoard: [HexagonView] = []
+    var newPlaceses: [HexagonView] = []
     
     var p1ChessBox: [Chess] = []
     var p2ChessBox: [Chess] = []
