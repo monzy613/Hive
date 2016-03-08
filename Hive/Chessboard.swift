@@ -82,7 +82,6 @@ class Chessboard: UIScrollView {
         }
     }
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-
     }
     
     func inHandChessSelected() {
@@ -100,7 +99,29 @@ class Chessboard: UIScrollView {
     }
  
     func onBoardChessSelected() {
-        
+        if let chessView = logic?.selectedChessView {
+            switch (chessView.chess?.chessType)! {
+            case Const.BEE:
+                for (_, chess) in chessView.relationDictionary {
+                    for emptyCorner in Corner.except(Array(chess.relationDictionary.keys) as [Corner]) {
+                        moveToHexagon(withChess: chess, andCorner: emptyCorner, chessType: Const.BEE)
+                    }
+                }
+                break
+            case Const.ANT:
+                for chess in (logic?.chessOnBoard)! {
+                    if chess == chessView {
+                        continue
+                    } else {
+                        for emptyCorner in Corner.except(Array(chess.relationDictionary.keys) as [Corner]) {
+                            moveToHexagon(withChess: chess, andCorner: emptyCorner, chessType: Const.ANT)
+                        }
+                    }
+                }
+            default:
+                break
+            }
+        }
     }
     
     func showAvailablePlace(aroundChessView chessView: HexagonView) {
@@ -187,6 +208,52 @@ class Chessboard: UIScrollView {
         newPlace.animate()
     }
     
+    func moveToHexagon(withChess chessView: HexagonView, andCorner corner: Corner, chessType: String) {
+        let newCenter = centerPoint(atCorner: corner, withRelatedCenter: chessView.myCenter!)
+        for np in logic!.newPlaceses {
+            if almostSamePoint(lp: newCenter, rp: np.myCenter!) {
+                return
+            }
+        }
+        switch chessType {
+        case Const.BEE:
+            if isDistanceEqualToLength(p1: (logic!.selectedChessView?.myCenter)!, p2: newCenter, length: 2 * edgeLength * MZCalculate.mzcos(degree: 30)) == false {
+                return
+            }
+        case Const.ANT:
+            break
+        default:
+            break
+        }
+        
+        let newPlace = HexagonView(edgeLength: initX / 10, center: newCenter, chess: Chess(playerType: -1, chessType: Const.newChess), hiveType: .NewMove)
+        let aroundChesses = chessesAround(point: newCenter)
+        for chess in aroundChesses {
+            if chess == (logic?.selectedChessView)! {
+                print("self chess")
+                continue
+            }
+            if let chessCenter = chess.myCenter {
+                if chessCenter.x < newCenter.x && chessCenter.y < newCenter.y {//u1
+                    newPlace.relationDictionary[.U1] = chess
+                } else if chessCenter.x == newCenter.x && chessCenter.y < newCenter.y {//u2
+                    newPlace.relationDictionary[.U2] = chess
+                } else if chessCenter.x > newCenter.x && chessCenter.y < newCenter.y {//u3
+                    newPlace.relationDictionary[.U3] = chess
+                } else if chessCenter.x < newCenter.x && chessCenter.y > newCenter.y {//d1
+                    newPlace.relationDictionary[.D1] = chess
+                } else if chessCenter.x == newCenter.x && chessCenter.y > newCenter.y {//d2
+                    newPlace.relationDictionary[.D2] = chess
+                } else if chessCenter.x > newCenter.x && chessCenter.y > newCenter.y {//d3
+                    newPlace.relationDictionary[.D3] = chess
+                }
+            }
+        }
+        logic!.newPlaceses.append(newPlace)
+        self.addSubview(newPlace)
+        newPlace.animate()
+    }
+    
     func chessesAround(point point: CGPoint) -> [HexagonView] {
         var chesses: [HexagonView] = []
         for chess in logic!.chessOnBoard {
@@ -198,17 +265,23 @@ class Chessboard: UIScrollView {
     }
     
     func almostEqual(lh lh: CGPoint, rh: CGPoint) -> Bool {
-        let a = Double((lh.x - rh.x) * (lh.x - rh.x))
-        let b = Double((lh.y - rh.y) * (lh.y - rh.y))
-        let dis = sqrt(a + b)
-        let diff = abs(dis - 2 * Double(edgeLength * MZCalculate.mzcos(degree: 30)))
+        let diff = abs(Double(distance(between: lh, and_p2: rh)) - 2 * Double(edgeLength * MZCalculate.mzcos(degree: 30)))
         return diff < 0.1
     }
     
+    
     func almostSamePoint(lp lp: CGPoint, rp: CGPoint) -> Bool {
-        let a = Double((lp.x - rp.x) * (lp.x - rp.x))
-        let b = Double((lp.y - rp.y) * (lp.y - rp.y))
+        return distance(between: lp, and_p2: rp) < 0.1
+    }
+    
+    func isDistanceEqualToLength(p1 p1: CGPoint, p2: CGPoint, length: CGFloat) -> Bool {
+        return abs(distance(between: p1, and_p2: p2) - length) < 0.1
+    }
+    
+    func distance(between p1: CGPoint, and_p2 p2: CGPoint) -> CGFloat {
+        let a = Double((p1.x - p2.x) * (p1.x - p2.x))
+        let b = Double((p1.y - p2.y) * (p1.y - p2.y))
         let dis = sqrt(a + b)
-        return dis < 0.1
+        return CGFloat(dis)
     }
 }

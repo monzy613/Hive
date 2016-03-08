@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import pop
 
 class HexagonView: UIView {
     enum HiveType {
         case InHand
         case OnBoard
         case EmptyPlace
+        case NewMove
     }
     
     var chess: Chess?
@@ -81,6 +83,9 @@ class HexagonView: UIView {
     }
     
     func toggleSelected() {
+        if hiveType! == .OnBoard {
+            logic!.selectedChessView = self
+        }
         if let logic = logic, chess = chess {
             if logic.currentTurn != chess.playerType {
                 return
@@ -206,12 +211,6 @@ class HexagonView: UIView {
     }
     
     func initObservers() {
-        /*
-        if hiveType! == .EmptyPlace {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "onChessDeselected", name: Const.OnChessDeselected, object: nil)
-            return
-        }
-        */
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "newChessSelected:", name: Const.OnChessSelected, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "chessPlaced:", name: Const.OnChessPlaced, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onChessDeselected", name: Const.OnChessDeselected, object: nil)
@@ -246,7 +245,9 @@ class HexagonView: UIView {
     }
     
     func onChessDeselected() {
-        if hiveType! == .EmptyPlace {
+        logic!.selectedChessView = nil
+        logic?.selectedChess = nil
+        if hiveType! == .EmptyPlace || hiveType! == .NewMove {
             logic?.newPlaceses.removeAll()
             self.removeFromSuperview()
         }
@@ -271,7 +272,11 @@ class HexagonView: UIView {
             }
             break
         case .OnBoard:
-            toggleSelected()
+            logic?.tempChessViewBox.removeAll()
+            detectChessboard(self)
+            print("tempCount: \(logic!.tempChessViewBox.count)")
+            print("allCount: \(logic!.chessOnBoard.count)")
+            checkMovable(onSuccess: toggleSelected)
             break
         case .EmptyPlace:
             stopAnimate()
@@ -287,7 +292,67 @@ class HexagonView: UIView {
             logic!.chessOnBoard.append(newChess)
             logic!.started = true
             logic?.nextPlayer()
+        case .NewMove:
+            stopAnimate()
+            move((logic!.selectedChessView)!, destPoint: myCenter!)
+            logic!.selectedChessView?.myCenter = self.myCenter
+            logic!.selectedChessView?.removeAllRelations()
+            logic!.selectedChessView?.relationDictionary = self.relationDictionary
+            for (corner, chessV) in relationDictionary {
+                chessV.relationDictionary[corner.opposite()] = (logic!.selectedChessView!)
+            }
+            self.removeFromSuperview()
+            NSNotificationCenter.defaultCenter().postNotificationName(Const.OnChessPlaced, object: nil, userInfo: [Const.placedChess: logic!.selectedChess!])
+            logic?.chessPlaced()
+            logic?.newPlaceses.removeAll()
+            logic?.nextPlayer()
         }
+    }
+    
+    func removeAllRelations() {
+        for (corner, chess) in relationDictionary {
+            chess.relationDictionary.removeValueForKey(corner.opposite())
+        }
+        relationDictionary.removeAll()
+    }
+    
+    func checkMovable(onSuccess onSuccess: Void -> Void) {
+        if logic!.chessOnBoard.count == 1 {
+            return
+        } else {
+            onSuccess()
+        }
+    }
+    
+    func detectChessboard(except: HexagonView) {
+        for chess in relationDictionary.values {
+            if (logic!.tempChessViewBox).contains(chess) == false {
+                logic!.tempChessViewBox.append(chess)
+                for chess2 in chess.relationDictionary.values {
+                    if chess2 == except {
+                        continue
+                    } else {
+                        if (logic!.tempChessViewBox).contains(chess2) == false {
+                            logic?.tempChessViewBox.append(chess2)
+                            chess2.detectChessboard(except)
+                        } else {
+                            continue
+                        }
+                    }
+                }
+                return
+            } else {
+                return
+            }
+        }
+    }
+    
+    func move(object: AnyObject, destPoint: CGPoint) {
+        let anim = POPSpringAnimation(propertyNamed: kPOPViewCenter)
+        anim.springBounciness = 10
+        anim.springSpeed = 7
+        anim.toValue = NSValue(CGPoint: destPoint)
+        object.pop_addAnimation(anim, forKey: "move")
     }
     
     

@@ -14,6 +14,9 @@
 		F41872D41C8ACF7D00093123 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41872D31C8ACF7D00093123 /* GameViewController.swift */; };
 		F41872D61C8AD9A200093123 /* ChessBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41872D51C8AD9A200093123 /* ChessBox.swift */; };
 		F41872D81C8B0FB600093123 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41872D71C8B0FB600093123 /* Game.swift */; };
+		F420EBF81C8F165D009B553A /* pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F420EBED1C8F164D009B553A /* pop.framework */; };
+		F420EBF91C8F1871009B553A /* pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F420EBED1C8F164D009B553A /* pop.framework */; };
+		F420EBFA1C8F1871009B553A /* pop.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F420EBED1C8F164D009B553A /* pop.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F45E19521C8E613B00ECD480 /* Calculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45E19511C8E613B00ECD480 /* Calculate.swift */; };
 		F4AE1E921C8C6518008837AD /* Chessboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AE1E911C8C6518008837AD /* Chessboard.swift */; };
 		F4D504401C8B2BF00016C4F2 /* HexagonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D5043F1C8B2BF00016C4F2 /* HexagonView.swift */; };
@@ -48,6 +51,79 @@
 		F4D5047E1C8B2CE40016C4F2 /* UnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D504611C8B2CE40016C4F2 /* UnwindSegue.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		F420EBEA1C8F164D009B553A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F420EBE01C8F164D009B553A /* pop.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC191218162FB53A00E0CC76;
+			remoteInfo = "pop-ios-static";
+		};
+		F420EBEC1C8F164D009B553A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F420EBE01C8F164D009B553A /* pop.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0B6BE74819FFD3B900762101;
+			remoteInfo = "pop-ios-framework";
+		};
+		F420EBEE1C8F164D009B553A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F420EBE01C8F164D009B553A /* pop.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC68857F18C7B60000C6194C;
+			remoteInfo = "pop-osx-framework";
+		};
+		F420EBF01C8F164D009B553A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F420EBE01C8F164D009B553A /* pop.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0755AE4F1BEA15950094AB41;
+			remoteInfo = "pop-tvos-framework";
+		};
+		F420EBF21C8F164D009B553A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F420EBE01C8F164D009B553A /* pop.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ECF01ED318C92B7F009E0AD1;
+			remoteInfo = "pop-tests-ios";
+		};
+		F420EBF41C8F164D009B553A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F420EBE01C8F164D009B553A /* pop.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC7E319918C93D6500B38170;
+			remoteInfo = "pop-tests-osx";
+		};
+		F420EBF61C8F164D009B553A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F420EBE01C8F164D009B553A /* pop.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0755AE8C1BEA19580094AB41;
+			remoteInfo = "pop-tests-tvos";
+		};
+		F420EBFB1C8F1871009B553A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F420EBE01C8F164D009B553A /* pop.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B6BE74719FFD3B900762101;
+			remoteInfo = "pop-ios-framework";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F420EBFD1C8F1871009B553A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F420EBFA1C8F1871009B553A /* pop.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		F41872BA1C8AB77400093123 /* Hive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F41872BD1C8AB77400093123 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +134,7 @@
 		F41872D31C8ACF7D00093123 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		F41872D51C8AD9A200093123 /* ChessBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChessBox.swift; sourceTree = "<group>"; };
 		F41872D71C8B0FB600093123 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		F420EBE01C8F164D009B553A /* pop.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = pop.xcodeproj; path = pop/pop.xcodeproj; sourceTree = "<group>"; };
 		F45E19511C8E613B00ECD480 /* Calculate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calculate.swift; sourceTree = "<group>"; };
 		F499BEE31C8EA92500067E1F /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		F4AE1E911C8C6518008837AD /* Chessboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chessboard.swift; sourceTree = "<group>"; };
@@ -99,6 +176,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F420EBF91C8F1871009B553A /* pop.framework in Frameworks */,
+				F420EBF81C8F165D009B553A /* pop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +187,7 @@
 		F41872B11C8AB77400093123 = {
 			isa = PBXGroup;
 			children = (
+				F420EBE01C8F164D009B553A /* pop.xcodeproj */,
 				F4D504431C8B2CE40016C4F2 /* Spring */,
 				F41872BC1C8AB77400093123 /* Hive */,
 				F41872BB1C8AB77400093123 /* Products */,
@@ -139,6 +219,20 @@
 				F499BEE31C8EA92500067E1F /* MyPlayground.playground */,
 			);
 			path = Hive;
+			sourceTree = "<group>";
+		};
+		F420EBE11C8F164D009B553A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F420EBEB1C8F164D009B553A /* libpop.a */,
+				F420EBED1C8F164D009B553A /* pop.framework */,
+				F420EBEF1C8F164D009B553A /* pop.framework */,
+				F420EBF11C8F164D009B553A /* pop.framework */,
+				F420EBF31C8F164D009B553A /* pop-tests.xctest */,
+				F420EBF51C8F164D009B553A /* pop-tests.xctest */,
+				F420EBF71C8F164D009B553A /* pop-tests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		F4D504431C8B2CE40016C4F2 /* Spring */ = {
@@ -188,10 +282,12 @@
 				F41872B61C8AB77400093123 /* Sources */,
 				F41872B71C8AB77400093123 /* Frameworks */,
 				F41872B81C8AB77400093123 /* Resources */,
+				F420EBFD1C8F1871009B553A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F420EBFC1C8F1871009B553A /* PBXTargetDependency */,
 			);
 			name = Hive;
 			productName = Hive;
@@ -225,12 +321,70 @@
 			mainGroup = F41872B11C8AB77400093123;
 			productRefGroup = F41872BB1C8AB77400093123 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F420EBE11C8F164D009B553A /* Products */;
+					ProjectRef = F420EBE01C8F164D009B553A /* pop.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				F41872B91C8AB77400093123 /* Hive */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		F420EBEB1C8F164D009B553A /* libpop.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libpop.a;
+			remoteRef = F420EBEA1C8F164D009B553A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F420EBED1C8F164D009B553A /* pop.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = pop.framework;
+			remoteRef = F420EBEC1C8F164D009B553A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F420EBEF1C8F164D009B553A /* pop.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = pop.framework;
+			remoteRef = F420EBEE1C8F164D009B553A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F420EBF11C8F164D009B553A /* pop.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = pop.framework;
+			remoteRef = F420EBF01C8F164D009B553A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F420EBF31C8F164D009B553A /* pop-tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "pop-tests.xctest";
+			remoteRef = F420EBF21C8F164D009B553A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F420EBF51C8F164D009B553A /* pop-tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "pop-tests.xctest";
+			remoteRef = F420EBF41C8F164D009B553A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F420EBF71C8F164D009B553A /* pop-tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "pop-tests.xctest";
+			remoteRef = F420EBF61C8F164D009B553A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F41872B81C8AB77400093123 /* Resources */ = {
@@ -290,6 +444,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F420EBFC1C8F1871009B553A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "pop-ios-framework";
+			targetProxy = F420EBFB1C8F1871009B553A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F41872C11C8AB77400093123 /* Main.storyboard */ = {

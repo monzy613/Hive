@@ -32,6 +32,7 @@ class Const {
     static let MOS_W = "mosquito-w"
     static let LBG = "ladybug"
     static let newChess = "newChess"
+    static let newPlace = "newPlace"
     
     static let P1 = 0
     static let P2 = 1
@@ -44,7 +45,9 @@ class Logic {
     var expands: [String: Int] = [:]
     var currentTurn: Int = Chess.P1
     var selectedChess: Chess?
+    var selectedChessView: HexagonView?
     
+    var tempChessViewBox: [HexagonView] = []
     var chessOnBoard: [HexagonView] = []
     var newPlaceses: [HexagonView] = []
     
@@ -69,6 +72,13 @@ class Logic {
             chessnum += amount
             chessKindAmount += 1
         }
+    }
+    
+    func chessPlaced() {
+        for p in newPlaceses {
+            p.removeFromSuperview()
+        }
+        self.newPlaceses.removeAll()
     }
     
     func nextPlayer() {
