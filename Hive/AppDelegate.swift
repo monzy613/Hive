@@ -7,7 +7,7 @@
 //
 
 import UIKit
-var logic: Logic?
+var logic: Logic? = Logic(expands: [:])
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

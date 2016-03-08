@@ -29,6 +29,7 @@ class Chess {
     static let PILL = "pillworm"
     static let MOS = "mosquito"
     static let LBG = "ladybug"
+    
     static let P1 = 0
     static let P2 = 1
     
@@ -68,8 +69,20 @@ class ChessBox: UIScrollView {
         if logic == nil {
             return
         }
-        for (i, chess) in (logic!.p1ChessBox).enumerate() {
-            let chessView = HexagonView(edgeLength: chessEdgeLength, center: CGPointMake(CGFloat(i + 1) * inset + chessEdgeLength * CGFloat(2 * i + 1), self.frame.height / 2), playerType: playerType, chessType: chess.chessType, withBadgeValue: chess.maxAmount)
+        var sorted: [Chess] = []
+        if playerType == Chess.P1 {
+            sorted = (logic!.p1ChessBox).sort {
+                c1, c2 in
+                return c1.maxAmount < c2.maxAmount
+            }
+        } else {
+            sorted = (logic!.p2ChessBox).sort {
+                c1, c2 in
+                return c1.maxAmount < c2.maxAmount
+            }
+        }
+        for (i, chess) in sorted.enumerate() {
+            let chessView = HexagonView(edgeLength: chessEdgeLength, center: CGPointMake(CGFloat(i + 1) * inset + chessEdgeLength * CGFloat(2 * i + 1), self.frame.height / 2), chess: chess, hiveType: .InHand)
             self.addSubview(chessView)
         }
     }
