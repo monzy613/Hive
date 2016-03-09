@@ -28,8 +28,19 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         let frame = chessboardScrollView.frame
         chessboardScrollView.contentSize = CGSizeMake(frame.width * 2, frame.height * 2)
         chessboardScrollView.contentOffset = CGPointMake(frame.width / 2, frame.height / 2)
-        chessboardScrollView.initX = frame.width
-        chessboardScrollView.initY = frame.height
+        let backgroundImageView = UIImageView(image: UIImage(named: Const.background))
+        let width = frame.width
+        backgroundImageView.frame = CGRectMake(frame.width - width / 2, frame.height - width / 2, width, width)
+        backgroundImageView.contentMode = .ScaleToFill
+        
+        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .Light))
+        blurView.frame = CGRectMake(-frame.width, -frame.height, chessboardScrollView.contentSize.width * 3, chessboardScrollView.contentSize.height * 3)
+        chessboardScrollView.addSubview(backgroundImageView)
+        chessboardScrollView.addSubview(blurView)
+        chessboardScrollView.initX = backgroundImageView.center.x
+        chessboardScrollView.initY = backgroundImageView.center.y
+        view.bringSubviewToFront(p1chessbox)
+        view.bringSubviewToFront(p2chessbox)
     }
     
     func initObservers() {

@@ -19,19 +19,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="honey" translatesAutoresizingMaskIntoConstraints="NO" id="zYy-t7-wN6">
-                                <rect key="frame" x="56.5" y="203" width="262.5" height="262.5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yellowCircle" translatesAutoresizingMaskIntoConstraints="NO" id="zYy-t7-wN6">
+                                <rect key="frame" x="56" y="202" width="262.5" height="262.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="zYy-t7-wN6" secondAttribute="height" multiplier="1:1" id="i7P-XJ-dXx"/>
                                 </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="h_hive" translatesAutoresizingMaskIntoConstraints="NO" id="VSS-uf-kbV">
+                                <rect key="frame" x="148" y="296" width="79" height="76"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="VSS-uf-kbV" secondAttribute="height" multiplier="29:28" id="TYi-Mr-SFJ"/>
+                                    <constraint firstAttribute="width" secondItem="VSS-uf-kbV" secondAttribute="height" multiplier="109:105" id="tmR-tF-bWX"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="tmR-tF-bWX"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="VSS-uf-kbV" firstAttribute="width" secondItem="VSS-uf-kbV" secondAttribute="height" multiplier="109:105" id="FJO-LL-iuA"/>
+                            <constraint firstItem="VSS-uf-kbV" firstAttribute="centerY" secondItem="zYy-t7-wN6" secondAttribute="centerY" id="Jo1-Kf-JBB"/>
+                            <constraint firstItem="VSS-uf-kbV" firstAttribute="centerX" secondItem="zYy-t7-wN6" secondAttribute="centerX" id="cXp-N6-F5E"/>
                             <constraint firstItem="zYy-t7-wN6" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="cec-Fe-spX"/>
+                            <constraint firstItem="VSS-uf-kbV" firstAttribute="height" secondItem="zYy-t7-wN6" secondAttribute="height" multiplier="0.29" id="dWV-eW-ez8"/>
                             <constraint firstItem="zYy-t7-wN6" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.7" id="fwa-98-H0t"/>
                             <constraint firstItem="zYy-t7-wN6" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="rjt-h4-vIX"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="FJO-LL-iuA"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
@@ -41,6 +62,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="honey" width="512" height="512"/>
+        <image name="h_hive" width="532" height="512"/>
+        <image name="yellowCircle" width="512" height="512"/>
     </resources>
 </document>

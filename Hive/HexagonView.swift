@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import pop
 
 class HexagonView: UIView {
     enum HiveType {
@@ -29,6 +28,28 @@ class HexagonView: UIView {
     var hiveType: HiveType?
     
     var relationDictionary: [Corner: HexagonView] = [:]
+    
+    static func hexagonPath(center: CGPoint, edgeLength: CGFloat) -> UIBezierPath {
+        let x1 = center.x - edgeLength
+        let x2 = center.x - 0.5 * edgeLength
+        let x3 = center.x + 0.5 * edgeLength
+        let x4 = center.x + edgeLength
+        
+        let y1 = center.y - edgeLength * cos(CGFloat(M_PI) / 6)
+        let y2 = center.y
+        let y3 = center.y + edgeLength * cos(CGFloat(M_PI) / 6)
+        let hexagonPath = UIBezierPath()
+        hexagonPath.lineWidth = 2
+        hexagonPath.moveToPoint(CGPointMake(x2, y1))
+        hexagonPath.addLineToPoint(CGPointMake(x3, y1))
+        hexagonPath.addLineToPoint(CGPointMake(x4, y2))
+        hexagonPath.addLineToPoint(CGPointMake(x3, y3))
+        hexagonPath.addLineToPoint(CGPointMake(x2, y3))
+        hexagonPath.addLineToPoint(CGPointMake(x1, y2))
+        hexagonPath.addLineToPoint(CGPointMake(x2, y1))
+        hexagonPath.closePath()
+        return hexagonPath
+    }
     
     
     func initBadge(withValue value: Int) {
@@ -122,13 +143,7 @@ class HexagonView: UIView {
         badgeValue = chess.maxAmount
         self.hiveType = hiveType
         let x1 = center.x - edgeLength
-        let x2 = center.x - 0.5 * edgeLength
-        let x3 = center.x + 0.5 * edgeLength
-        let x4 = center.x + edgeLength
-        
         let y1 = center.y - edgeLength * cos(CGFloat(M_PI) / 6)
-        let y2 = center.y
-        let y3 = center.y + edgeLength * cos(CGFloat(M_PI) / 6)
         let bounds = CGRect(x: x1, y: y1, width: edgeLength * 2, height:  2 * edgeLength * cos(CGFloat(M_PI) / 6))
         
         super.init(frame: bounds)
@@ -164,16 +179,7 @@ class HexagonView: UIView {
         imageView?.frame = bounds
         imageView?.bounds = bounds
         
-        let path = UIBezierPath()
-        path.lineWidth = 2
-        path.moveToPoint(CGPointMake(x2, y1))
-        path.addLineToPoint(CGPointMake(x3, y1))
-        path.addLineToPoint(CGPointMake(x4, y2))
-        path.addLineToPoint(CGPointMake(x3, y3))
-        path.addLineToPoint(CGPointMake(x2, y3))
-        path.addLineToPoint(CGPointMake(x1, y2))
-        path.addLineToPoint(CGPointMake(x2, y1))
-        path.closePath()
+        let path = HexagonView.hexagonPath(center, edgeLength: edgeLength)
         
         let shapeLayer = CAShapeLayer()
         shapeLayer.lineWidth = 1
@@ -290,7 +296,7 @@ class HexagonView: UIView {
             logic?.nextPlayer()
         case .NewMove:
             stopAnimate()
-            move((logic!.selectedChessView)!, destPoint: myCenter!)
+            MZAnim.move(object: (logic!.selectedChessView)!, destPoint: myCenter!)
             logic!.selectedChessView?.myCenter = self.myCenter
             logic!.selectedChessView?.removeAllRelations()
             logic!.selectedChessView?.relationDictionary = self.relationDictionary
@@ -326,7 +332,6 @@ class HexagonView: UIView {
                 MZToastView().configure((self.superview!).superview!, content: "请保持棋盘连通性", position: .Middle, length: .Short, lightMode: .Dark).show()
                 return
             } else {
-                
                 onSuccess()
             }
         }
@@ -348,6 +353,7 @@ class HexagonView: UIView {
         }
     }
     
+    /*
     func move(object: AnyObject, destPoint: CGPoint) {
         let anim = POPSpringAnimation(propertyNamed: kPOPViewCenter)
         anim.springBounciness = 10
@@ -355,6 +361,7 @@ class HexagonView: UIView {
         anim.toValue = NSValue(CGPoint: destPoint)
         object.pop_addAnimation(anim, forKey: "move")
     }
+     */
     
     
 }

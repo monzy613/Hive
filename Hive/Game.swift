@@ -13,6 +13,7 @@ class Const {
     static let OnChessSelected = "Monzy.OnChessSelected"
     static let OnChessDeselected = "Monzy.OnChessDeselected"
     static let OnChessPlaced = "Monzy.OnChessPlaced"
+    static let TransitionFinish = "Monzy.TransitionFinish"
     
     //userinfo keys
     static let playerType = "Monzy.keys.playerType"
@@ -33,9 +34,12 @@ class Const {
     static let LBG = "ladybug"
     static let newChess = "newChess"
     static let newPlace = "newPlace"
+    static let background = "background"
     
     static let P1 = 0
     static let P2 = 1
+    
+    static let startGameSegue = "StartGameSegue"
 }
 
 class Logic {
@@ -53,6 +57,8 @@ class Logic {
     
     var p1ChessBox: [Chess] = []
     var p2ChessBox: [Chess] = []
+    
+    var autoMoveImageCenters: [PointPosition: CGPoint] = [:]
     
     init(expands: [String: Int]) {
         self.expands = expands

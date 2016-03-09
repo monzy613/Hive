@@ -17,9 +17,13 @@
 		F420EBF81C8F165D009B553A /* pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F420EBED1C8F164D009B553A /* pop.framework */; };
 		F420EBF91C8F1871009B553A /* pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F420EBED1C8F164D009B553A /* pop.framework */; };
 		F420EBFA1C8F1871009B553A /* pop.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F420EBED1C8F164D009B553A /* pop.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F4326CF01C90850300A8BDD5 /* HexagonTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4326CEF1C90850300A8BDD5 /* HexagonTransitionAnimator.swift */; };
 		F45E19521C8E613B00ECD480 /* Calculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45E19511C8E613B00ECD480 /* Calculate.swift */; };
+		F46573EB1C9008CB0011F236 /* StartPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46573EA1C9008CB0011F236 /* StartPageController.swift */; };
+		F46573F31C900E410011F236 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46573F21C900E410011F236 /* Animation.swift */; };
 		F4AE1E921C8C6518008837AD /* Chessboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AE1E911C8C6518008837AD /* Chessboard.swift */; };
 		F4AF36F21C8FF21F00945E71 /* MZToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AF36F11C8FF21F00945E71 /* MZToastView.swift */; };
+		F4AF36F41C8FF85100945E71 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4AF36F31C8FF85100945E71 /* Images.xcassets */; };
 		F4D504401C8B2BF00016C4F2 /* HexagonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D5043F1C8B2BF00016C4F2 /* HexagonView.swift */; };
 		F4D504621C8B2CE40016C4F2 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D504441C8B2CE40016C4F2 /* AsyncButton.swift */; };
 		F4D504631C8B2CE40016C4F2 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D504451C8B2CE40016C4F2 /* AsyncImageView.swift */; };
@@ -136,10 +140,14 @@
 		F41872D51C8AD9A200093123 /* ChessBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChessBox.swift; sourceTree = "<group>"; };
 		F41872D71C8B0FB600093123 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		F420EBE01C8F164D009B553A /* pop.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = pop.xcodeproj; path = pop/pop.xcodeproj; sourceTree = "<group>"; };
+		F4326CEF1C90850300A8BDD5 /* HexagonTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexagonTransitionAnimator.swift; sourceTree = "<group>"; };
 		F45E19511C8E613B00ECD480 /* Calculate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calculate.swift; sourceTree = "<group>"; };
+		F46573EA1C9008CB0011F236 /* StartPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartPageController.swift; sourceTree = "<group>"; };
+		F46573F21C900E410011F236 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		F499BEE31C8EA92500067E1F /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		F4AE1E911C8C6518008837AD /* Chessboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chessboard.swift; sourceTree = "<group>"; };
 		F4AF36F11C8FF21F00945E71 /* MZToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MZToastView.swift; sourceTree = "<group>"; };
+		F4AF36F31C8FF85100945E71 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F4D5043F1C8B2BF00016C4F2 /* HexagonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexagonView.swift; sourceTree = "<group>"; };
 		F4D504441C8B2CE40016C4F2 /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		F4D504451C8B2CE40016C4F2 /* AsyncImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
@@ -208,9 +216,12 @@
 			isa = PBXGroup;
 			children = (
 				F4AF36F11C8FF21F00945E71 /* MZToastView.swift */,
+				F46573F21C900E410011F236 /* Animation.swift */,
 				F41872BD1C8AB77400093123 /* AppDelegate.swift */,
 				F41872D71C8B0FB600093123 /* Game.swift */,
 				F41872D31C8ACF7D00093123 /* GameViewController.swift */,
+				F46573EA1C9008CB0011F236 /* StartPageController.swift */,
+				F4326CEF1C90850300A8BDD5 /* HexagonTransitionAnimator.swift */,
 				F4D5043F1C8B2BF00016C4F2 /* HexagonView.swift */,
 				F4AE1E911C8C6518008837AD /* Chessboard.swift */,
 				F41872D51C8AD9A200093123 /* ChessBox.swift */,
@@ -220,6 +231,7 @@
 				F41872D11C8ABD0800093123 /* Assets.xcassets */,
 				F45E19511C8E613B00ECD480 /* Calculate.swift */,
 				F499BEE31C8EA92500067E1F /* MyPlayground.playground */,
+				F4AF36F31C8FF85100945E71 /* Images.xcassets */,
 			);
 			path = Hive;
 			sourceTree = "<group>";
@@ -397,6 +409,7 @@
 				F4D5046E1C8B2CE40016C4F2 /* Info.plist in Resources */,
 				F41872C81C8AB77400093123 /* LaunchScreen.storyboard in Resources */,
 				F41872D21C8ABD0800093123 /* Assets.xcassets in Resources */,
+				F4AF36F41C8FF85100945E71 /* Images.xcassets in Resources */,
 				F41872C31C8AB77400093123 /* Main.storyboard in Resources */,
 				F4D504711C8B2CE40016C4F2 /* LoadingView.xib in Resources */,
 			);
@@ -419,6 +432,7 @@
 				F4D5046F1C8B2CE40016C4F2 /* KeyboardLayoutConstraint.swift in Sources */,
 				F4D5047C1C8B2CE40016C4F2 /* TransitionManager.swift in Sources */,
 				F41872D81C8B0FB600093123 /* Game.swift in Sources */,
+				F4326CF01C90850300A8BDD5 /* HexagonTransitionAnimator.swift in Sources */,
 				F4D504641C8B2CE40016C4F2 /* AutoTextView.swift in Sources */,
 				F4D504681C8B2CE40016C4F2 /* DesignableLabel.swift in Sources */,
 				F4D504771C8B2CE40016C4F2 /* SpringImageView.swift in Sources */,
@@ -440,10 +454,12 @@
 				F4D504651C8B2CE40016C4F2 /* BlurView.swift in Sources */,
 				F4D5046D1C8B2CE40016C4F2 /* ImageLoader.swift in Sources */,
 				F4D5047A1C8B2CE40016C4F2 /* SpringTextView.swift in Sources */,
+				F46573F31C900E410011F236 /* Animation.swift in Sources */,
 				F4D504721C8B2CE40016C4F2 /* Misc.swift in Sources */,
 				F4D504401C8B2BF00016C4F2 /* HexagonView.swift in Sources */,
 				F4D5046C1C8B2CE40016C4F2 /* DesignableView.swift in Sources */,
 				F4D5047D1C8B2CE40016C4F2 /* TransitionZoom.swift in Sources */,
+				F46573EB1C9008CB0011F236 /* StartPageController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -86,7 +86,7 @@ class Chessboard: UIScrollView {
     
     func inHandChessSelected() {
         if logic!.started == false {
-            let newPlace = HexagonView(edgeLength: initX / 10, center: CGPointMake(initX - edgeLength / 2, initY - edgeLength / 2), chess: Chess(playerType: -1, chessType: Const.newChess), hiveType: .EmptyPlace)
+            let newPlace = HexagonView(edgeLength: initX / 10, center: CGPointMake(initX, initY), chess: Chess(playerType: -1, chessType: Const.newChess), hiveType: .EmptyPlace)
             newPlace.animate()
             logic!.newPlaceses.append(newPlace)
             self.addSubview(newPlace)

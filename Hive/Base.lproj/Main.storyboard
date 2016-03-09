@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10109" systemVersion="15E61b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10109" systemVersion="15E61b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uUR-kX-Bej">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10083"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Game View Controller-->
@@ -20,27 +21,70 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFM-1S-Ybc" customClass="Chessboard" customModule="Hive" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="125" width="375" height="437"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </scrollView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIT-KS-pCl" customClass="ChessBox" customModule="Hive" customModuleProvider="target">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIT-KS-pCl" customClass="ChessBox" customModule="Hive" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="105"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <subviews>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4O7-ag-Eh8">
+                                        <rect key="frame" x="-562.5" y="0.0" width="1500" height="105"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gHB-fD-De1">
+                                            <rect key="frame" x="0.0" y="0.0" width="1500" height="105"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <blurEffect style="dark"/>
+                                    </visualEffectView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="4O7-ag-Eh8" firstAttribute="width" secondItem="fIT-KS-pCl" secondAttribute="width" multiplier="4" id="Key-HL-UXm"/>
+                                    <constraint firstItem="4O7-ag-Eh8" firstAttribute="height" secondItem="fIT-KS-pCl" secondAttribute="height" id="LU2-BO-c64"/>
                                     <constraint firstAttribute="width" secondItem="fIT-KS-pCl" secondAttribute="height" multiplier="25:7" id="VZE-9R-2pU"/>
+                                    <constraint firstItem="4O7-ag-Eh8" firstAttribute="leading" secondItem="fIT-KS-pCl" secondAttribute="leading" constant="-500" id="Zlk-cN-GXe"/>
+                                    <constraint firstItem="4O7-ag-Eh8" firstAttribute="centerY" secondItem="fIT-KS-pCl" secondAttribute="centerY" id="c2N-FH-qmp"/>
+                                    <constraint firstItem="4O7-ag-Eh8" firstAttribute="centerX" secondItem="fIT-KS-pCl" secondAttribute="centerX" id="jrV-1E-wLD"/>
+                                    <constraint firstItem="4O7-ag-Eh8" firstAttribute="centerX" secondItem="fIT-KS-pCl" secondAttribute="centerX" id="y3l-GE-lDV"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Zlk-cN-GXe"/>
+                                        <exclude reference="y3l-GE-lDV"/>
+                                    </mask>
+                                </variation>
                             </scrollView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PfI-rw-kI1" customClass="ChessBox" customModule="Hive" customModuleProvider="target">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PfI-rw-kI1" customClass="ChessBox" customModule="Hive" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="562" width="375" height="105"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <subviews>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cku-Ga-EXa">
+                                        <rect key="frame" x="-563" y="0.0" width="1500" height="105"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="bF2-ps-kM5">
+                                            <rect key="frame" x="0.0" y="0.0" width="1500" height="105"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <blurEffect style="light"/>
+                                    </visualEffectView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="Cku-Ga-EXa" firstAttribute="centerX" secondItem="PfI-rw-kI1" secondAttribute="centerX" id="3hd-UK-Tln"/>
+                                    <constraint firstItem="Cku-Ga-EXa" firstAttribute="height" secondItem="PfI-rw-kI1" secondAttribute="height" id="Bkb-2B-APZ"/>
+                                    <constraint firstItem="Cku-Ga-EXa" firstAttribute="width" secondItem="PfI-rw-kI1" secondAttribute="width" multiplier="4" id="Miw-ht-Rzf"/>
                                     <constraint firstAttribute="width" secondItem="PfI-rw-kI1" secondAttribute="height" multiplier="25:7" id="PdI-HK-ebO"/>
+                                    <constraint firstItem="Cku-Ga-EXa" firstAttribute="centerX" secondItem="PfI-rw-kI1" secondAttribute="centerX" id="iS5-8a-Kwi"/>
+                                    <constraint firstItem="Cku-Ga-EXa" firstAttribute="centerY" secondItem="PfI-rw-kI1" secondAttribute="centerY" id="sca-Ru-AT4"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="3hd-UK-Tln"/>
+                                    </mask>
+                                </variation>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TFM-1S-Ybc" firstAttribute="top" secondItem="fIT-KS-pCl" secondAttribute="bottom" id="92s-AJ-kiJ"/>
+                            <constraint firstItem="TFM-1S-Ybc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BuO-bN-Ksn"/>
                             <constraint firstItem="PfI-rw-kI1" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="GLJ-67-o6f"/>
                             <constraint firstItem="TFM-1S-Ybc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Icw-Qb-Qor"/>
                             <constraint firstItem="fIT-KS-pCl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="In7-uD-OOJ"/>
@@ -51,19 +95,26 @@
                             <constraint firstItem="TFM-1S-Ybc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UDJ-5k-y66"/>
                             <constraint firstAttribute="trailing" secondItem="TFM-1S-Ybc" secondAttribute="trailing" id="WcE-MU-yn3"/>
                             <constraint firstItem="fIT-KS-pCl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b0e-MD-WUe"/>
+                            <constraint firstItem="TFM-1S-Ybc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="c8c-FJ-4l8"/>
+                            <constraint firstItem="TFM-1S-Ybc" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="f1L-Wx-XV8"/>
                             <constraint firstItem="PfI-rw-kI1" firstAttribute="top" secondItem="TFM-1S-Ybc" secondAttribute="bottom" id="g46-s1-hNv"/>
                             <constraint firstItem="fIT-KS-pCl" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="hFl-kT-Cuh"/>
                             <constraint firstItem="PfI-rw-kI1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="isO-Fh-hMp"/>
                             <constraint firstItem="fIT-KS-pCl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="lNM-1m-6Ja"/>
+                            <constraint firstItem="TFM-1S-Ybc" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="ngv-dZ-jiL"/>
                             <constraint firstItem="PfI-rw-kI1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yyB-hi-6ie"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="In7-uD-OOJ"/>
                                 <exclude reference="lNM-1m-6Ja"/>
+                                <exclude reference="92s-AJ-kiJ"/>
                                 <exclude reference="Icw-Qb-Qor"/>
                                 <exclude reference="O3B-yp-BLr"/>
+                                <exclude reference="Svt-uC-WmV"/>
+                                <exclude reference="UDJ-5k-y66"/>
                                 <exclude reference="WcE-MU-yn3"/>
+                                <exclude reference="g46-s1-hNv"/>
                                 <exclude reference="isO-Fh-hMp"/>
                             </mask>
                         </variation>
@@ -77,7 +128,150 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="741.5" y="421.5"/>
+            <point key="canvasLocation" x="1553.5" y="421.5"/>
+        </scene>
+        <!--Start Page Controller-->
+        <scene sceneID="upb-KT-SWC">
+            <objects>
+                <viewController id="KgU-fe-dZw" customClass="StartPageController" customModule="Hive" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WI6-TP-FMk"/>
+                        <viewControllerLayoutGuide type="bottom" id="MQA-83-leX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GT5-kL-QW1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qD7-YC-2um" customClass="DesignableButton" customModule="Hive" customModuleProvider="target">
+                                <rect key="frame" x="75" y="575" width="225" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="qD7-YC-2um" secondAttribute="height" multiplier="102:25" id="DAb-sY-XVw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="19"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.52001438020000001" green="0.5038273365" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="startButtonHighlighted">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.29019607843137257" green="0.56470588235294117" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="KgU-fe-dZw" eventType="touchUpInside" id="AtR-PI-yGA"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yellowCircle" translatesAutoresizingMaskIntoConstraints="NO" id="2y7-lj-eEe" customClass="SpringImageView" customModule="Hive" customModuleProvider="target">
+                                <rect key="frame" x="43" y="189" width="288.5" height="288.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="2y7-lj-eEe" secondAttribute="height" multiplier="1:1" id="XLo-P8-5O7"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="i_hive" translatesAutoresizingMaskIntoConstraints="NO" id="rHc-04-yE0" customClass="AutoMoveImageView" customModule="Hive" customModuleProvider="target">
+                                <rect key="frame" x="144" y="291.5" width="87" height="84"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rHc-04-yE0" secondAttribute="height" multiplier="109:105" id="R17-Jc-yzs"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="v_hive" translatesAutoresizingMaskIntoConstraints="NO" id="bxW-K5-2Gx" customClass="AutoMoveImageView" customModule="Hive" customModuleProvider="target">
+                                <rect key="frame" x="144" y="291.5" width="87" height="84"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bxW-K5-2Gx" secondAttribute="height" multiplier="109:105" id="3JW-3y-d2N"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="h_hive" translatesAutoresizingMaskIntoConstraints="NO" id="gen-D5-OH9" customClass="AutoMoveImageView" customModule="Hive" customModuleProvider="target">
+                                <rect key="frame" x="144" y="292" width="87" height="84"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gen-D5-OH9" secondAttribute="height" multiplier="109:105" id="K7g-wk-jz1"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="e_hive" translatesAutoresizingMaskIntoConstraints="NO" id="Lf7-9p-hyy" customClass="AutoMoveImageView" customModule="Hive" customModuleProvider="target">
+                                <rect key="frame" x="144" y="292" width="87" height="84"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Lf7-9p-hyy" secondAttribute="height" multiplier="109:105" id="smP-Rt-wCW"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qD7-YC-2um" firstAttribute="width" secondItem="GT5-kL-QW1" secondAttribute="width" multiplier="0.6" id="9IQ-88-cLd"/>
+                            <constraint firstItem="rHc-04-yE0" firstAttribute="centerX" secondItem="GT5-kL-QW1" secondAttribute="centerX" id="CS2-11-SOM"/>
+                            <constraint firstItem="2y7-lj-eEe" firstAttribute="centerX" secondItem="GT5-kL-QW1" secondAttribute="centerX" id="EIt-Xe-XjL"/>
+                            <constraint firstItem="gen-D5-OH9" firstAttribute="centerX" secondItem="GT5-kL-QW1" secondAttribute="centerX" id="FOv-DR-DoV"/>
+                            <constraint firstItem="bxW-K5-2Gx" firstAttribute="height" secondItem="gen-D5-OH9" secondAttribute="height" id="GjD-PW-JaV"/>
+                            <constraint firstItem="gen-D5-OH9" firstAttribute="height" secondItem="2y7-lj-eEe" secondAttribute="height" multiplier="0.29" id="Jq8-Ek-aWM"/>
+                            <constraint firstItem="rHc-04-yE0" firstAttribute="centerY" secondItem="GT5-kL-QW1" secondAttribute="centerY" id="M55-5u-VVE"/>
+                            <constraint firstItem="Lf7-9p-hyy" firstAttribute="centerY" secondItem="GT5-kL-QW1" secondAttribute="centerY" id="NU8-Qp-2nf"/>
+                            <constraint firstItem="qD7-YC-2um" firstAttribute="centerX" secondItem="GT5-kL-QW1" secondAttribute="centerX" id="QEa-kC-Cdr"/>
+                            <constraint firstItem="Lf7-9p-hyy" firstAttribute="height" secondItem="gen-D5-OH9" secondAttribute="height" id="UfS-MY-Bl5"/>
+                            <constraint firstItem="bxW-K5-2Gx" firstAttribute="centerY" secondItem="GT5-kL-QW1" secondAttribute="centerY" id="Vo5-IE-7ns"/>
+                            <constraint firstItem="gen-D5-OH9" firstAttribute="centerY" secondItem="GT5-kL-QW1" secondAttribute="centerY" id="YCI-Tv-LuZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qD7-YC-2um" secondAttribute="trailing" constant="66" id="gmT-AY-VFb"/>
+                            <constraint firstItem="2y7-lj-eEe" firstAttribute="centerY" secondItem="GT5-kL-QW1" secondAttribute="centerY" id="h40-at-lOc"/>
+                            <constraint firstItem="bxW-K5-2Gx" firstAttribute="centerX" secondItem="GT5-kL-QW1" secondAttribute="centerX" id="iBe-yr-FoA"/>
+                            <constraint firstItem="rHc-04-yE0" firstAttribute="height" secondItem="gen-D5-OH9" secondAttribute="height" id="kNg-Ig-31i"/>
+                            <constraint firstItem="2y7-lj-eEe" firstAttribute="width" secondItem="GT5-kL-QW1" secondAttribute="width" multiplier="0.77" id="nYL-rV-b5h"/>
+                            <constraint firstItem="MQA-83-leX" firstAttribute="top" secondItem="qD7-YC-2um" secondAttribute="bottom" constant="37" id="r68-nF-Tk0"/>
+                            <constraint firstItem="Lf7-9p-hyy" firstAttribute="centerX" secondItem="GT5-kL-QW1" secondAttribute="centerX" id="yhQ-tA-51T"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="gmT-AY-VFb"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="RcT-CN-7Du"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="eAMimageView" destination="Lf7-9p-hyy" id="ZoZ-oj-8tQ"/>
+                        <outlet property="hAMimageView" destination="gen-D5-OH9" id="Lrh-mZ-WIh"/>
+                        <outlet property="iAMimageView" destination="rHc-04-yE0" id="mor-N2-F5y"/>
+                        <outlet property="logoImageView" destination="2y7-lj-eEe" id="4nX-Gg-c0w"/>
+                        <outlet property="startButton" destination="qD7-YC-2um" id="QsU-7x-Sfu"/>
+                        <outlet property="vAMimageView" destination="bxW-K5-2Gx" id="cUF-l9-7tY"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="StartGameSegue" id="PXA-Gq-fcD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z6b-O0-NYO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1086.5" y="421.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="XJI-9f-ZU7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="uUR-kX-Bej" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6au-p9-ot4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <outlet property="delegate" destination="1Au-Dd-HDm" id="Y96-Pn-P7O"/>
+                        <segue destination="KgU-fe-dZw" kind="relationship" relationship="rootViewController" id="vOg-kj-mhi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KL0-9k-57e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="1Au-Dd-HDm" customClass="MZNavigationControllerDelegate" customModule="Hive" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="274" y="421"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="e_hive" width="532" height="512"/>
+        <image name="h_hive" width="532" height="512"/>
+        <image name="i_hive" width="532" height="512"/>
+        <image name="startButtonHighlighted" width="288" height="80"/>
+        <image name="v_hive" width="532" height="512"/>
+        <image name="yellowCircle" width="512" height="512"/>
+    </resources>
 </document>
