@@ -19,6 +19,7 @@
 		F420EBFA1C8F1871009B553A /* pop.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F420EBED1C8F164D009B553A /* pop.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F45E19521C8E613B00ECD480 /* Calculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45E19511C8E613B00ECD480 /* Calculate.swift */; };
 		F4AE1E921C8C6518008837AD /* Chessboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AE1E911C8C6518008837AD /* Chessboard.swift */; };
+		F4AF36F21C8FF21F00945E71 /* MZToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AF36F11C8FF21F00945E71 /* MZToastView.swift */; };
 		F4D504401C8B2BF00016C4F2 /* HexagonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D5043F1C8B2BF00016C4F2 /* HexagonView.swift */; };
 		F4D504621C8B2CE40016C4F2 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D504441C8B2CE40016C4F2 /* AsyncButton.swift */; };
 		F4D504631C8B2CE40016C4F2 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D504451C8B2CE40016C4F2 /* AsyncImageView.swift */; };
@@ -138,6 +139,7 @@
 		F45E19511C8E613B00ECD480 /* Calculate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calculate.swift; sourceTree = "<group>"; };
 		F499BEE31C8EA92500067E1F /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		F4AE1E911C8C6518008837AD /* Chessboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chessboard.swift; sourceTree = "<group>"; };
+		F4AF36F11C8FF21F00945E71 /* MZToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MZToastView.swift; sourceTree = "<group>"; };
 		F4D5043F1C8B2BF00016C4F2 /* HexagonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexagonView.swift; sourceTree = "<group>"; };
 		F4D504441C8B2CE40016C4F2 /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		F4D504451C8B2CE40016C4F2 /* AsyncImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 		F41872BC1C8AB77400093123 /* Hive */ = {
 			isa = PBXGroup;
 			children = (
+				F4AF36F11C8FF21F00945E71 /* MZToastView.swift */,
 				F41872BD1C8AB77400093123 /* AppDelegate.swift */,
 				F41872D71C8B0FB600093123 /* Game.swift */,
 				F41872D31C8ACF7D00093123 /* GameViewController.swift */,
@@ -430,6 +433,7 @@
 				F4D504631C8B2CE40016C4F2 /* AsyncImageView.swift in Sources */,
 				F41872BE1C8AB77400093123 /* AppDelegate.swift in Sources */,
 				F4D504701C8B2CE40016C4F2 /* LoadingView.swift in Sources */,
+				F4AF36F21C8FF21F00945E71 /* MZToastView.swift in Sources */,
 				F4D504741C8B2CE40016C4F2 /* Spring.swift in Sources */,
 				F4D504791C8B2CE40016C4F2 /* SpringTextField.swift in Sources */,
 				F41872D61C8AD9A200093123 /* ChessBox.swift in Sources */,
@@ -564,7 +568,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Hive/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Monzy.Zhang.Hive.Hive;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Monzy.Zhang.Hive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -576,7 +580,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Hive/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Monzy.Zhang.Hive.Hive;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Monzy.Zhang.Hive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

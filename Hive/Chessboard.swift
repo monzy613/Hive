@@ -230,7 +230,6 @@ class Chessboard: UIScrollView {
         let aroundChesses = chessesAround(point: newCenter)
         for chess in aroundChesses {
             if chess == (logic?.selectedChessView)! {
-                print("self chess")
                 continue
             }
             if let chessCenter = chess.myCenter {

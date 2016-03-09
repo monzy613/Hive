@@ -272,10 +272,6 @@ class HexagonView: UIView {
             }
             break
         case .OnBoard:
-            logic?.tempChessViewBox.removeAll()
-            detectChessboard(self)
-            print("tempCount: \(logic!.tempChessViewBox.count)")
-            print("allCount: \(logic!.chessOnBoard.count)")
             checkMovable(onSuccess: toggleSelected)
             break
         case .EmptyPlace:
@@ -317,32 +313,37 @@ class HexagonView: UIView {
     }
     
     func checkMovable(onSuccess onSuccess: Void -> Void) {
-        if logic!.chessOnBoard.count == 1 {
+        if logic!.chessOnBoard.count == 1 || logic!.currentTurn != chess!.playerType {
             return
         } else {
-            onSuccess()
+            detectConnect(self)
+            let allCount = (logic?.chessOnBoard.count)!
+            let sideCount = (logic?.tempChessViewBox.count)!
+            print("all: \(allCount)")
+            print("side: \(sideCount)")
+            if (allCount - sideCount) != 1 {
+                //cannot move
+                MZToastView().configure((self.superview!).superview!, content: "请保持棋盘连通性", position: .Middle, length: .Short, lightMode: .Dark).show()
+                return
+            } else {
+                
+                onSuccess()
+            }
         }
     }
     
-    func detectChessboard(except: HexagonView) {
+    //detect after self is moved, the chessboard is a connect map or not
+    func detectConnect(except: HexagonView) {
+        if self == except {
+            logic?.tempChessViewBox.removeAll()
+        }
         for chess in relationDictionary.values {
-            if (logic!.tempChessViewBox).contains(chess) == false {
+            if (logic!.tempChessViewBox).contains(chess) == false && (chess != except) {
                 logic!.tempChessViewBox.append(chess)
-                for chess2 in chess.relationDictionary.values {
-                    if chess2 == except {
-                        continue
-                    } else {
-                        if (logic!.tempChessViewBox).contains(chess2) == false {
-                            logic?.tempChessViewBox.append(chess2)
-                            chess2.detectChessboard(except)
-                        } else {
-                            continue
-                        }
-                    }
+                chess.detectConnect(except)
+                if self == except {
+                    return
                 }
-                return
-            } else {
-                return
             }
         }
     }
