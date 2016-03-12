@@ -27,8 +27,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIT-KS-pCl" customClass="ChessBox" customModule="Hive" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="105"/>
                                 <subviews>
-                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4O7-ag-Eh8">
-                                        <rect key="frame" x="-562.5" y="0.0" width="1500" height="105"/>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4O7-ag-Eh8">
+                                        <rect key="frame" x="-481" y="0.0" width="1500" height="105"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gHB-fD-De1">
                                             <rect key="frame" x="0.0" y="0.0" width="1500" height="105"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -53,11 +53,11 @@
                                     </mask>
                                 </variation>
                             </scrollView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PfI-rw-kI1" customClass="ChessBox" customModule="Hive" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="562" width="375" height="105"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PfI-rw-kI1" customClass="ChessBox" customModule="Hive" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="561" width="375" height="105"/>
                                 <subviews>
-                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cku-Ga-EXa">
-                                        <rect key="frame" x="-563" y="0.0" width="1500" height="105"/>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cku-Ga-EXa">
+                                        <rect key="frame" x="-481" y="0.0" width="1500" height="105"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="bF2-ps-kM5">
                                             <rect key="frame" x="0.0" y="0.0" width="1500" height="105"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -106,14 +106,14 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="In7-uD-OOJ"/>
-                                <exclude reference="lNM-1m-6Ja"/>
                                 <exclude reference="92s-AJ-kiJ"/>
                                 <exclude reference="Icw-Qb-Qor"/>
                                 <exclude reference="O3B-yp-BLr"/>
                                 <exclude reference="Svt-uC-WmV"/>
                                 <exclude reference="UDJ-5k-y66"/>
                                 <exclude reference="WcE-MU-yn3"/>
+                                <exclude reference="In7-uD-OOJ"/>
+                                <exclude reference="lNM-1m-6Ja"/>
                                 <exclude reference="g46-s1-hNv"/>
                                 <exclude reference="isO-Fh-hMp"/>
                             </mask>

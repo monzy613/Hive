@@ -24,6 +24,10 @@ enum Corner {
     case D2
     case D3
     
+    static func all() -> [Corner] {
+        return [.U1, .U2, .U3, .D1, .D2, .D3]
+    }
+    
     func opposite() -> Corner {
         switch self {
         case .U1:
@@ -85,8 +89,10 @@ class Chessboard: UIScrollView {
     }
     
     func inHandChessSelected() {
+        logic?.newPlaceses.removeAll()
         if logic!.started == false {
             let newPlace = HexagonView(edgeLength: initX / 10, center: CGPointMake(initX, initY), chess: Chess(playerType: -1, chessType: Const.newChess), hiveType: .EmptyPlace)
+            newPlace.whose = logic!.selectedChessView
             newPlace.animate()
             logic!.newPlaceses.append(newPlace)
             self.addSubview(newPlace)
@@ -117,6 +123,10 @@ class Chessboard: UIScrollView {
                             moveToHexagon(withChess: chess, andCorner: emptyCorner, chessType: Const.ANT)
                         }
                     }
+                }
+            case Const.BTL:
+                for corner in Corner.all() {
+                    moveToHexagon(withChess: chessView, andCorner: corner, chessType: Const.BTL)
                 }
             default:
                 break
@@ -203,6 +213,7 @@ class Chessboard: UIScrollView {
                 }
             }
         }
+        newPlace.whose = logic!.selectedChessView
         logic!.newPlaceses.append(newPlace)
         self.addSubview(newPlace)
         newPlace.animate()
@@ -248,6 +259,7 @@ class Chessboard: UIScrollView {
                 }
             }
         }
+        newPlace.whose = logic!.selectedChessView
         logic!.newPlaceses.append(newPlace)
         self.addSubview(newPlace)
         newPlace.animate()

@@ -215,21 +215,16 @@
 		F41872BC1C8AB77400093123 /* Hive */ = {
 			isa = PBXGroup;
 			children = (
-				F4AF36F11C8FF21F00945E71 /* MZToastView.swift */,
+				F4C3868F1C93B9B40013E5A5 /* VCs */,
 				F46573F21C900E410011F236 /* Animation.swift */,
-				F41872BD1C8AB77400093123 /* AppDelegate.swift */,
-				F41872D71C8B0FB600093123 /* Game.swift */,
-				F41872D31C8ACF7D00093123 /* GameViewController.swift */,
-				F46573EA1C9008CB0011F236 /* StartPageController.swift */,
+				F45E19511C8E613B00ECD480 /* Calculate.swift */,
 				F4326CEF1C90850300A8BDD5 /* HexagonTransitionAnimator.swift */,
-				F4D5043F1C8B2BF00016C4F2 /* HexagonView.swift */,
-				F4AE1E911C8C6518008837AD /* Chessboard.swift */,
-				F41872D51C8AD9A200093123 /* ChessBox.swift */,
+				F41872D71C8B0FB600093123 /* Game.swift */,
+				F41872BD1C8AB77400093123 /* AppDelegate.swift */,
 				F41872C11C8AB77400093123 /* Main.storyboard */,
 				F41872C61C8AB77400093123 /* LaunchScreen.storyboard */,
 				F41872C91C8AB77400093123 /* Info.plist */,
 				F41872D11C8ABD0800093123 /* Assets.xcassets */,
-				F45E19511C8E613B00ECD480 /* Calculate.swift */,
 				F499BEE31C8EA92500067E1F /* MyPlayground.playground */,
 				F4AF36F31C8FF85100945E71 /* Images.xcassets */,
 			);
@@ -248,6 +243,19 @@
 				F420EBF71C8F164D009B553A /* pop-tests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F4C3868F1C93B9B40013E5A5 /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				F4AF36F11C8FF21F00945E71 /* MZToastView.swift */,
+				F4AE1E911C8C6518008837AD /* Chessboard.swift */,
+				F41872D51C8AD9A200093123 /* ChessBox.swift */,
+				F4D5043F1C8B2BF00016C4F2 /* HexagonView.swift */,
+				F41872D31C8ACF7D00093123 /* GameViewController.swift */,
+				F46573EA1C9008CB0011F236 /* StartPageController.swift */,
+			);
+			name = VCs;
 			sourceTree = "<group>";
 		};
 		F4D504431C8B2CE40016C4F2 /* Spring */ = {

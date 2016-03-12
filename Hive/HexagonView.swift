@@ -20,6 +20,7 @@ class HexagonView: UIView {
     var imageView: SpringImageView?
     var badgeLabel: UILabel?
     var myCenter: CGPoint?
+    var whose: HexagonView?
     
     var isSelected = false
     var hasBadge = true
@@ -104,9 +105,7 @@ class HexagonView: UIView {
     }
     
     func toggleSelected() {
-        if hiveType! == .OnBoard {
-            logic!.selectedChessView = self
-        }
+        
         if let logic = logic, chess = chess {
             if logic.currentTurn != chess.playerType {
                 return
@@ -114,6 +113,7 @@ class HexagonView: UIView {
         }
         if isSelected == false {
             logic?.selectedChess = self.chess
+            logic?.selectedChessView = self
             NSNotificationCenter.defaultCenter().postNotificationName(Const.OnChessSelected, object: nil, userInfo: [Const.playerType: chess!.playerType, Const.sender: self.hashValue, Const.chessView: self])
             animate()
             UIView.animateWithDuration(0.2, animations: {
@@ -121,8 +121,11 @@ class HexagonView: UIView {
                 self.layer.opacity = 0.5
                 })
         } else {
-            NSNotificationCenter.defaultCenter().postNotificationName(Const.OnChessDeselected, object: nil, userInfo: nil)
-            logic?.selectedChess = nil
+            if logic?.selectedChessView == self {
+                logic?.selectedChess = nil
+                logic?.selectedChessView = nil
+                NSNotificationCenter.defaultCenter().postNotificationName(Const.OnChessDeselected, object: nil, userInfo: nil)
+            }
             stopAnimate()
             
         }
@@ -201,7 +204,8 @@ class HexagonView: UIView {
         imageView!.userInteractionEnabled = true
         self.addSubview(imageView!)
         initObservers()
-        if hiveType == .EmptyPlace {
+        if hiveType == .EmptyPlace || hiveType == .NewMove {
+            self.alpha = 0.5
             return
         }
         
@@ -224,6 +228,13 @@ class HexagonView: UIView {
     
     
     func newChessSelected(notification: NSNotification) {
+        if hiveType! == .EmptyPlace || hiveType! == .NewMove {
+            if logic?.newPlaceses.count != 0 {
+                logic?.newPlaceses.removeAll()
+            }
+            self.removeFromSuperview()
+            return
+        }
         if let userInfo = notification.userInfo {
             if userInfo[Const.sender] as! Int == self.hashValue {
                 return
@@ -251,10 +262,10 @@ class HexagonView: UIView {
     }
     
     func onChessDeselected() {
-        logic!.selectedChessView = nil
-        logic?.selectedChess = nil
         if hiveType! == .EmptyPlace || hiveType! == .NewMove {
-            logic?.newPlaceses.removeAll()
+            if logic?.newPlaceses.count != 0 {
+                logic?.newPlaceses.removeAll()
+            }
             self.removeFromSuperview()
         }
     }

@@ -55,8 +55,6 @@ class StartPageController: UIViewController {
     @IBAction func startButtonPressed(sender: DesignableButton) {
         //stop animation
         
-        animationTimer?.invalidate()
-        animationTimer = nil
         let buttonHighlightedImage = startButton.backgroundImageForState(.Highlighted)
         let buttonHighlightedTitleColor = startButton.titleColorForState(.Highlighted)
         startButton.setBackgroundImage(buttonHighlightedImage, forState: .Normal)
@@ -72,8 +70,9 @@ class StartPageController: UIViewController {
     
     func initHiveAnim() {
         let logoSize = logoImageView.bounds.size
-        let logoCenter = logoImageView.center
+        let logoCenter = view.center
         print(logoSize)
+        print(logoCenter)
         let xOffset = logoSize.width * 0.2865
         let yOffset = logoSize.width * 0.1768
         
